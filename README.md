@@ -79,7 +79,7 @@ This keeps each agent-generated change isolated and easier to review.
 
 ## Preview Strategy
 
-Before a change is accepted, the system deploys a preview version locally on the self-hosted environment.
+Before a change is accepted, the system deploys a preview version on the self-hosted environment.
 
 That preview can then be tested before merge.
 
@@ -98,7 +98,7 @@ Conceptually:
 In the current architecture there are distinct repositories for different purposes:
 
 - private agent system repository
-- private or controlled website repository
+- website repository
 - public sanitized documentation repository
 
 This separation reduces risk and improves clarity.
