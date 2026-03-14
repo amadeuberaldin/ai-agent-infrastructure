@@ -10,6 +10,15 @@ This file contains sanitized notes from the evolution of the agent pipeline.
 - human review remains important even when generation is automated
 - separating public documentation from private runtime code is worth the effort
 
+## Quality lessons
+
+A major improvement came from splitting generation into two different quality-focused stages:
+
+- planning before coding
+- refinement after coding
+
+This produced stronger visual results than single-step generation.
+
 ## Git-specific observations
 
 Using Git as a review boundary improved the system significantly.
@@ -23,11 +32,17 @@ Instead of allowing generated output to go directly into the stable branch, the 
 
 This reduced the risk of accidental breakage.
 
-## Security-related observations
+## Content trust lessons
 
-Using repository-scoped credentials is safer than reusing a personal key for automation.
+Generated pages may look visually convincing while still being factually wrong.
 
-A dedicated deploy key tied only to the website repository is a better fit for automated Git push operations than a personal key with an interactive passphrase.
+That led to stronger rules around:
+
+- preserving the correct owner identity
+- avoiding fabricated metrics
+- avoiding invented clients
+- avoiding fake professional history
+- keeping backend constraints explicit
 
 ## Operational observations
 
@@ -47,6 +62,6 @@ Potential next steps include:
 - richer QA
 - automated smoke checks for preview
 - pull request creation
-- better observability
-- more structured content generation for real website sections
+- stronger identity/context injection
+- more structured content generation for real project pages
 

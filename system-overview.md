@@ -12,7 +12,11 @@ Orchestrator
 ↓
 Research
 ↓
+Design planner
+↓
 Development
+↓
+UI refinement
 ↓
 QA
 ↓
@@ -34,6 +38,19 @@ Stable branch merge
 - Git as a review boundary
 - separation between public and private repositories
 - sanitized public documentation
+
+---
+
+## Why planning and refinement were added
+
+A single-step “generate the page” flow was not enough to consistently produce high-quality design.
+
+The architecture improved after adding:
+
+- a design planning stage before code generation
+- a UI refinement stage after code generation
+
+This produced stronger layouts and more polished results.
 
 ---
 
@@ -77,15 +94,28 @@ That preview-first design is one of the most important features of the system.
 
 ---
 
+## Trustworthiness Constraints
+
+One of the important architectural lessons was that visually strong output is not enough.
+
+The workflow also needs constraints that preserve:
+
+- correct identity
+- factual honesty
+- backend consistency
+- technical guardrails
+
+---
+
 ## Public Documentation Scope
 
 This public repository intentionally omits:
 
 - credentials
 - internal IPs
-- private repository URLs beyond what is already public
 - private infrastructure details
-- secret runtime configuration
+- private runtime configuration
+- private repository access details
 
 Its role is to communicate the architecture and lessons learned without exposing sensitive operational details.
 

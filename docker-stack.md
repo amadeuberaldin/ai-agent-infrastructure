@@ -6,7 +6,9 @@ This public repository does not expose the full private deployment, but the conc
 
 - orchestrator
 - research worker
+- design planner worker
 - development worker
+- UI refiner worker
 - QA worker
 - deploy worker
 - Git preview worker
@@ -36,8 +38,14 @@ Workers are specialized by role.
 #### Research worker
 Processes the incoming objective and prepares the first stage of the job.
 
+#### Design planner worker
+Creates a structured visual direction before code generation begins.
+
 #### Development worker
-Generates project artifacts for the requested task.
+Generates the initial frontend and backend artifacts.
+
+#### UI refiner worker
+Improves the generated frontend by refining hierarchy, spacing, typography, and component polish.
 
 #### QA worker
 Runs validation checks before preview deployment.
