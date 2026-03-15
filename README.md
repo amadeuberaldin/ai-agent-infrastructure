@@ -13,7 +13,7 @@ This public repository exists to document the architecture and workflow without 
 - build practical self-hosted automation
 - generate reviewable website changes
 - use Git as a review boundary between agent output and stable code
-- improve output quality through planning and refinement stages
+- improve output quality through planning, refinement, and context stages
 - document the architecture in a safe public form
 
 ---
@@ -49,14 +49,15 @@ This repository documents:
 The current website-generation workflow follows these stages:
 
 1. research
-2. design planner
-3. development
-4. UI refinement
-5. QA validation
-6. preview deploy
-7. Git preview branch creation
-8. human review
-9. merge into the stable branch
+2. context builder
+3. design planner
+4. development
+5. UI refinement
+6. QA validation
+7. preview deploy
+8. Git preview branch creation
+9. human review
+10. merge into the stable branch
 
 This makes generated output reviewable before it is accepted into the stable version of the project.
 
@@ -65,6 +66,18 @@ This makes generated output reviewable before it is accepted into the stable ver
 ## Why the extra stages matter
 
 A major improvement in the system came from splitting generation into multiple quality-focused steps.
+
+### Context builder
+
+The context builder injects persistent site identity before design or code is generated.
+
+It helps communicate:
+
+- who the site represents
+- editorial tone
+- homepage philosophy
+- content integrity rules
+- separation between homepage and internal pages
 
 ### Design planner
 
@@ -90,6 +103,36 @@ The UI refiner improves the first generated version by focusing on:
 - overall polish
 
 This made the generated pages significantly more professional.
+
+---
+
+## Persistent Site Identity
+
+One key architectural improvement was introducing a persistent site identity document.
+
+Instead of relying only on a long prompt, the system can now use a stable context file to preserve:
+
+- owner identity
+- tone
+- philosophical direction
+- integrity rules
+- content boundaries
+
+This improved consistency across generations.
+
+---
+
+## Homepage as Manifesto
+
+The homepage no longer needs to behave like a list of projects.
+
+A recent evolution of the system allowed the homepage to be generated more like:
+
+- a technical manifesto
+- an editorial introduction
+- a philosophical entry point into the work
+
+Concrete project content can then live in dedicated internal pages.
 
 ---
 
@@ -134,6 +177,7 @@ Recent iterations added stronger controls to improve trustworthiness:
 - avoiding invented clients
 - avoiding fabricated work history
 - enforcing backend consistency
+- injecting persistent content context before generation
 
 ---
 
@@ -156,6 +200,7 @@ This project is already past the purely conceptual stage.
 The documented workflow has been successfully exercised in practice with:
 
 - per-job preview generation
+- staged context injection
 - staged design planning
 - UI refinement
 - staged validation

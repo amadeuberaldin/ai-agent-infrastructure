@@ -6,6 +6,7 @@ This public repository does not expose the full private deployment, but the conc
 
 - orchestrator
 - research worker
+- context builder worker
 - design planner worker
 - development worker
 - UI refiner worker
@@ -37,6 +38,9 @@ Workers are specialized by role.
 
 #### Research worker
 Processes the incoming objective and prepares the first stage of the job.
+
+#### Context builder worker
+Injects persistent site identity and stable editorial context before design or code generation begins.
 
 #### Design planner worker
 Creates a structured visual direction before code generation begins.
